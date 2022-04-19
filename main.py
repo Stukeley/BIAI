@@ -13,11 +13,6 @@ from user_interface import *
 
 
 def main():
-    # Sort files and get minimum, maximum and average file sizes.
-    # These functions should only be called once.
-    create_folders_and_move_image_files()
-    calculate_min_max_avg_image_size()
-
     model = None
     class_names = None
 
@@ -27,6 +22,10 @@ def main():
         class_names = load_class_names()
     # Otherwise, create a new model, train it and save it to a folder.
     else:
+        # Sort files and get minimum, maximum and average file sizes.
+        # These functions should only be called once.
+        create_folders_and_move_image_files()
+        calculate_min_max_avg_image_size()
         (model, class_names) = create_and_train_model()
 
     # Create and display User Interface
