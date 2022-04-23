@@ -68,7 +68,7 @@ def create_and_train_model():
     batch_size = 32
 
     # Target size - all images will be resized to this size
-    target_size = (400, 400)
+    target_size = (224, 224)
     input_shape = (target_size[0], target_size[1], 3)
 
     # Create a dataset
@@ -149,7 +149,7 @@ def create_and_train_model():
     model.summary()
 
     # Train the model
-    epochs = 15
+    epochs = 100
     history = model.fit(
         train_ds,
         validation_data=val_ds,
@@ -194,7 +194,7 @@ def load_model():
 
 # Function used to predict class of an image.
 def predict_image(model, image_path, class_names):
-    img = tf.keras.utils.load_img(image_path, target_size=(400, 400))
+    img = tf.keras.utils.load_img(image_path, target_size=(224, 224))
     img_array = tf.keras.utils.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)  # Create a batch
 
