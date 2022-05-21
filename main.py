@@ -1,11 +1,8 @@
 ﻿import pathlib
 
 import PIL
-import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
-from keras import layers
-from keras.models import Sequential
 from tensorflow import keras
 
 from file_reorganisation import *
@@ -55,7 +52,7 @@ def load_model():
 
 # Function used to predict class of an image.
 def predict_image(model, image_path, class_names):
-    img = tf.keras.utils.load_img(image_path, target_size=(224, 224))
+    img = tf.keras.utils.load_img(image_path, target_size=(160, 160))
     img_array = tf.keras.utils.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0)  # Create a batch
 

@@ -1,10 +1,8 @@
 ﻿import pathlib
 
 import matplotlib.pyplot as plt
-import numpy as np
 import tensorflow as tf
 from keras import layers
-from keras import regularizers
 from keras.models import Sequential
 from tensorflow import keras
 
@@ -16,7 +14,7 @@ def main():
     # These functions should only be called once.
     create_folders_and_move_image_files()
     calculate_min_max_avg_image_size()
-    
+
     (model, class_names) = create_and_train_model()
 
 
@@ -34,7 +32,7 @@ def create_and_train_model():
     abyssinians = list(data_dir.glob('Abyssinian/*.jpg'))
     # PIL.Image.open(str(abyssinians[1])).show()
 
-    # Around 200 images in each set, split them into 32-image batches
+    # Around 200 images in each set, split them into 16-image batches
     batch_size = 16
 
     # Target size - all images will be resized to this size
